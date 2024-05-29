@@ -26,9 +26,9 @@ function Navbar() {
                         </NavLink>
                         <button onClick={toggleDarkMode} className="px-3 py-2 bg-gray-900 rounded-full dark:bg-white text-white dark:text-gray-900">
                             {isDarkMode ? (
-                                <i class="bi bi-sun"></i>
+                                <i className="bi bi-sun"></i>
                             ) : (
-                                <i class="bi bi-moon-stars"></i>
+                                <i className="bi bi-moon-stars"></i>
                             )}
                         </button>
                     </div>
