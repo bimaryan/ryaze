@@ -5,7 +5,7 @@ function Home() {
     return (
         <div className="max-w-screen-xl mx-auto p-4">
             <div className="space-y-6">
-                <h1 className="text-gray-900 dark:text-white text-xl">Hi, I'm Bima Ryan Alfarizi 👋</h1>
+                <h1 className="text-gray-900 dark:text-white text-2xl">Hi, I'm Bima Ryan Alfarizi 👋</h1>
                 <p className="ext-gray-900 dark:text-white font-normal text-m">I'm junior software engineer from indonesia.</p>
                 <div className="space-y-6">
                     <p className="text-m text-gray-900 dark:text-white font-normal">Find me on</p>
