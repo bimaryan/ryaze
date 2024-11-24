@@ -27,7 +27,7 @@ function Navbar() {
             <div className="flex flex-wrap items-center justify-between max-w-xl mx-auto">
                 <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <span className="self-center font-bold text-1xl whitespace-nowrap text-gray-900 dark:text-white title">
-                        <i class="fa-solid fa-code bg-gray-900 dark:bg-white rounded p-1 text-white dark:text-gray-900"></i> ryaze
+                        <i className="fa-solid fa-code bg-gray-900 dark:bg-white rounded p-1 text-white dark:text-gray-900"></i> ryaze
                     </span>
                 </NavLink>
                 <button
