@@ -1,8 +1,10 @@
 import './App.css';
+import './output.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Index';
-import Eror404 from './pages/error/404';
+import Error404 from './pages/error/Error404';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -10,9 +12,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="*" element={<Eror404 />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }
