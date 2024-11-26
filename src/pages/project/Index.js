@@ -8,7 +8,7 @@ function Project() {
 
     useEffect(() => {
         // Fetch project data from Laravel API
-        axios.get("http://localhost:8000/api/projects")
+        axios.get("https://api-ryaze.bimaryan.serv00.net/api/projects")
             .then((response) => {
                 setProjects(response.data.projects);
                 setLoading(false);

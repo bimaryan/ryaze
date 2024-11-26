@@ -8,7 +8,7 @@ function Detail() {
 
     // Ambil data proyek berdasarkan projectName
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/projects/${projectName}`)
+        axios.get(`https://api-ryaze.bimaryan.serv00.net/api/projects/${projectName}`)
             .then((response) => {
                 setProject(response.data.project);
             })

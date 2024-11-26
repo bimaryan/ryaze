@@ -9,7 +9,7 @@ function Home() {
     // Fetch data from Laravel API
     useEffect(() => {
         axios
-            .get("http://localhost:8000/api/projects")
+            .get("https://api-ryaze.bimaryan.serv00.net/api/projects")
             .then((response) => {
                 setProjects(response.data.projects);
                 setLoading(false);
