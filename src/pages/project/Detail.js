@@ -51,7 +51,7 @@ function Detail() {
                 <img
                     className="w-full h-auto rounded-lg"
                     alt={project.name}
-                    src={`http://localhost:8000/${project.image}`} // Gambar proyek dari API
+                    src={`https://api-ryaze.bimaryan.serv00.net/${project.image}`} // Gambar proyek dari API
                 />
                 <p className="text-lg text-gray-600 dark:text-gray-300">{project.description}</p>
                 <div>

@@ -51,7 +51,7 @@ function Project() {
                                 className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md"
                             >
                                 <img
-                                    src={`http://localhost:8000/${project.image}`}
+                                    src={`https://api-ryaze.bimaryan.serv00.net/${project.image}`}
                                     alt={project.name}
                                     className="w-full h-48 object-cover rounded-lg mb-4"
                                 />
