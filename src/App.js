@@ -2,9 +2,9 @@ import './App.css';
 import './output.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './pages/Home/Index';
+import Home from './pages/home/Index';
 import Footer from './components/Footer';
-import Error404 from './pages/Error/Error404';
+import Error404 from './pages/error/Error404';
 import Detail from './pages/project/Detail';
 import Project from './pages/project/Index';
 
