@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import * as motion from "motion/react-client"
+import ReactPlayer from "react-player";
 
 export default function Home() {
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const togglePlayMusic = () => {
+        setIsPlaying(!isPlaying);
+    };
+
     const techIcons = {
         JavaScript: "fa-brands fa-js text-yellow-500",
         NodeJS: "fa-brands fa-node text-green-500",
@@ -24,20 +30,32 @@ export default function Home() {
                     <h1 className="text-4xl font-extrabold text-gray-800 dark:text-gray-100">
                         Hi, I'm Bima Ryan Alfarizi 👋
                     </h1>
+
                     <p className="text-lg text-gray-600 dark:text-gray-300">
                         I'm a junior software engineer from Indonesia.
                     </p>
+
                     <p className="text-lg text-gray-600 dark:text-gray-300">
                         Lost in melodies 🎵 with a cup of coffee ☕ and a relaxing cigarette 🚬 at a cozy café is my routine activity.
                     </p>
-                    <iframe
-                        src="https://open.spotify.com/embed/track/3be9ACTxtcL6Zm4vJRUiPG?utm_source=generator"
-                        width="100%"
-                        height="100"
-                        allow="autoplay"
-                        title="Spotify Music Player"
-                        loading="lazy"
-                    ></iframe>
+
+                    <button
+                        onClick={togglePlayMusic}
+                        className="bg-blue-500 text-white px-4 py-2 rounded-full mb-3"
+                    >
+                        {isPlaying ? "Pause Music" : "Play Music"}
+                    </button>
+
+                    {isPlaying && (
+                        <ReactPlayer
+                            url="https://www.youtube.com/watch?v=4adZ7AguVcw"
+                            playing={isPlaying}
+                            controls={true}
+                            width="100%"
+                            height="360px"
+                        />
+                    )}
+
                     <div className="space-y-4">
                         <p className="text-lg font-medium text-gray-800 dark:text-gray-100">Find me on:</p>
                         <div className="flex gap-4">
