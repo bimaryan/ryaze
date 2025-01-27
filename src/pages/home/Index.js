@@ -1,25 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 function Home() {
-    const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    // Fetch data from Laravel API
-    useEffect(() => {
-        axios
-            .get("https://api-ryaze.bimaryan.serv00.net/api/projects")
-            .then((response) => {
-                setProjects(response.data.projects);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error("Error fetching projects:", error);
-                setLoading(false);
-            });
-    }, []);
-
     const techIcons = {
         JavaScript: "fa-brands fa-js text-yellow-500",
         NodeJS: "fa-brands fa-node text-green-500",
@@ -30,6 +12,7 @@ function Home() {
         CSS: "fa-brands fa-css3 text-blue-500",
         Laravel: "fa-brands fa-laravel text-red-500",
         MySQL: "fa-solid fa-database text-blue-500",
+        Unity: "fa-brands fa-unity text-gray-800"
     };
 
     return (
@@ -52,7 +35,7 @@ function Home() {
                             href="https://facebook.com/bima_ryan23"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-800 text-blue-600 rounded-full hover:scale-105 transition-transform"
+                            className="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-200 text-blue-600 rounded-full hover:scale-105 transition-transform"
                         >
                             <i className="fa-brands fa-facebook text-xl"></i>
                         </a>
@@ -60,7 +43,7 @@ function Home() {
                             href="https://instagram.com/bima_ryan23"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-800 text-pink-500 rounded-full hover:scale-105 transition-transform"
+                            className="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-200 text-pink-500 rounded-full hover:scale-105 transition-transform"
                         >
                             <i className="fa-brands fa-instagram text-xl"></i>
                         </a>
@@ -68,7 +51,7 @@ function Home() {
                             href="https://github.com/bimaryan"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-full hover:scale-105 transition-transform"
+                            className="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-200 text-gray-900 rounded-full hover:scale-105 transition-transform"
                         >
                             <i className="fa-brands fa-github text-xl"></i>
                         </a>
@@ -86,7 +69,8 @@ function Home() {
                     { alt: "TailwindCSS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
                     { alt: "Bootstrap", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" },
                     { alt: "HTML", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
-                    { alt: "CSS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" }].map((skill, index) => (
+                    { alt: "CSS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+                    { alt: "Unity", src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" }].map((skill, index) => (
                         <img key={index} className="w-16 h-16 mx-auto" alt={skill.alt} src={skill.src} />
                     ))}
                 </div>
@@ -94,59 +78,236 @@ function Home() {
 
             {/* Section: Work */}
             <section className="space-y-6 mt-14">
-                <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Work</h2>
-                {loading ? (
-                    <div className="flex justify-center items-center">
-                        <div className="animate-spin rounded-full border-t-4 border-blue-500 w-16 h-16"></div>
-                        {/* Spinner CSS */}
-                    </div>
-                ) : projects.length > 0 ? (
-                    <>
-                        {/* Display only 2 projects */}
-                        {projects.slice(0, 2).map((project) => (
-                            <div
-                                key={project.id}
-                                className="bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md"
-                            >
-                                <Link to={`/projects/${project.name}`} className="flex justify-between items-center group">
-                                    <div className="flex items-center gap-3">
-                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 group-hover:text-blue-500">
-                                            {project.name}
-                                        </h3>
-                                    </div>
-                                    <i className="fa-solid fa-arrow-up-right-from-square text-gray-600 dark:text-gray-400 group-hover:text-blue-500"></i>
-                                </Link>
-                                <hr className="my-4 border-gray-300 dark:border-gray-600" />
-                                <p className="text-sm text-gray-700 dark:text-gray-300">
-                                    {project.sort_description}
-                                </p>
-                                <div className="flex justify-end items-center gap-4 mt-4">
-                                    {project.technologies.split(",").map((tech, index) => (
-                                        <i
-                                            key={index}
-                                            className={`${techIcons[tech.trim()] || "fa-solid fa-question text-gray-500"} text-xl`}
-                                            title={tech.trim()} // Menampilkan tooltip nama teknologi
-                                        ></i>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-
-                        {/* "See All" Button */}
-                        <div className="flex justify-end mt-6">
-                            <Link
-                                to="/projects"
-                                className="px-6 py-2 text-m font-semibold text-white"
-                            >
-                                See All Projects
+                <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Project</h2>
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">Ball Jump - Unity</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            {/* <Link to="https://bitly.crazygamedev.my.id" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link> */}
+                            <Link to="https://github.com/bimaryan/BallJump" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
                             </Link>
                         </div>
-                    </>
-                ) : (
-                    <p className="text-center text-gray-600 dark:text-gray-300">
-                        No projects available at the moment. Please check back later!
-                    </p>
-                )}
+                    </div>
+
+                    <div className="mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">20 Januari 2022</p>
+                    </div>
+                </div>
+
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">Website Bucin</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            <Link to="https://bimaryan.github.io/You/" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link>
+                            <Link to="https://github.com/bimaryan/You" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">22 Juni 2022</p>
+                    </div>
+                </div>
+
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">QRCODE</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            {/* <Link to="https://bitly.crazygamedev.my.id" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link> */}
+                            <Link to="https://github.com/bimaryan/QRCODE" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">10 Agustus 2022</p>
+                    </div>
+                </div>
+
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">Short Link</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            <Link to="https://bitly.crazygamedev.my.id" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link>
+                            <Link to="https://github.com/bimaryan/shortlink-beta-" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">23 Maret 2023</p>
+                    </div>
+                </div>
+
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">Tiketing System - Extroverse</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            {/* <Link to="https://bitly.crazygamedev.my.id" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link> */}
+                            <Link to="https://github.com/bimaryan/extroverse" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">05 Oktober 2023</p>
+                    </div>
+                </div>
+
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">IT COMP - Himatif Polindra</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            <Link to="https://himatifpolindra.vercel.app/" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link>
+                            <Link to="https://github.com/bimaryan/it-comp" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">28 Desember 2023</p>
+                    </div>
+                </div>
+
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">Crazy Gamedev</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            <Link to="https://crazygamedev.my.id" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link>
+                            {/* <Link to="https://github.com/bimaryan/kodam" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
+                            </Link> */}
+                        </div>
+                    </div>
+
+                    <div className="mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">03 Maret 2024</p>
+                    </div>
+                </div>
+
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">Kost Kostan - Bharata.id</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            {/* <Link to="https://crazygamedev.my.id" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link> */}
+                            <Link to="https://github.com/bimaryan/Bharata.id-WEB" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="mt-2 flex justify-between">
+                        <div>
+                            <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">01 April 2024</p>
+                        </div>
+                        <div>
+                            <i className="fa-brands fa-laravel text-red-500"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">Cek Khodam</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            {/* <Link to="https://bitly.crazygamedev.my.id" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link> */}
+                            <Link to="https://github.com/bimaryan/kodam" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="mt-2 flex justify-between">
+                        <div>
+                            <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">02 Juli 2024</p>
+                        </div>
+                        <div>
+                            <i className="fa-brands fa-laravel text-red-500"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-gray-100 bg-gray-500 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg p-6 shadow-md hover:scale-105 transition-transform">
+                    <div className="flex justify-between items-center group">
+                        <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold dark:text-gray-200">Sipelak - Kampus Merdeka</h3>
+                        </div>
+                        <div className="flex gap-3 items-center dark:text-gray-200">
+                            {/* <Link to="https://bitly.crazygamedev.my.id" target="blank">
+                                <i className="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                            </Link> */}
+                            <Link to="https://github.com/bimaryan/silk" target="blank">
+                                <i className="fa-brands fa-github text-lg"></i>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="text-sm mt-2">
+                        <p>
+                            Aplikasi peminajaman bahan dan alat laboratorium adalah sebuah sistem berbasis teknologi yang dirancang untuk mempermudah proses peminjaman, pengembalian, serta pengelolaan inventaris laboratorium secara digital.
+                        </p>
+                    </div>
+
+                    <div className="mt-2 flex justify-between">
+                        <div>
+                            <p className="text-xs text-gray-500 dark:text-gray-200 font-medium">11 September 2024</p>
+                        </div>
+                        <div>
+                            <i className="fa-brands fa-laravel text-red-500"></i>
+                        </div>
+                    </div>
+                </div>
+                {/* 
+                <div className="flex justify-end mt-6">
+                    <Link
+                        to=""
+                        className="px-6 py-2 text-m font-semibold dark:text-white"
+                    >
+                        All Projects
+                    </Link>
+                </div> */}
             </section>
         </main>
     );
