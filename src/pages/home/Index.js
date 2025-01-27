@@ -30,6 +30,14 @@ export default function Home() {
                     <p className="text-lg text-gray-600 dark:text-gray-300">
                         Lost in melodies 🎵 with a cup of coffee ☕ and a relaxing cigarette 🚬 at a cozy café is my routine activity.
                     </p>
+                    <iframe
+                        src="https://open.spotify.com/embed/track/3be9ACTxtcL6Zm4vJRUiPG?utm_source=generator"
+                        width="100%"
+                        height="100"
+                        allow="autoplay"
+                        title="Spotify Music Player"
+                        loading="lazy"
+                    ></iframe>
                     <div className="space-y-4">
                         <p className="text-lg font-medium text-gray-800 dark:text-gray-100">Find me on:</p>
                         <div className="flex gap-4">
