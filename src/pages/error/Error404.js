@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Error404() {
     return (
-        <div className="flex items-center justify-center bg-gray-100 dark:bg-gray-800" style={{ height: '100vh' }}>
+        <div className="flex items-center justify-center" style={{ height: "80vh" }}>
             <div className="text-center p-6 bg-white dark:bg-gray-900 rounded-lg shadow-xl">
                 <h1 className="text-6xl font-bold text-gray-900 dark:text-white">404</h1>
                 <p className="text-lg text-gray-600 dark:text-gray-400">Page Not Found</p>
