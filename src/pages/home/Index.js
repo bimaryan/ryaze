@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
+import { Helmet } from "react-helmet";
 
 export default function Home() {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -24,6 +25,13 @@ export default function Home() {
 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Ryaze.my.id</title>
+                <link rel="canonical" href="https://www.ryaze.my.id/" />
+                <meta name="description" content="Website portofolio saya Bima Ryan Alfarizi" />
+                <meta name="keywords" content="website portofolio ryaze bima ryan alfarizi frondend backend fullstack gamedev crazygamedev unity" />
+            </Helmet>
             <main className="max-w-2xl mx-auto p-6">
                 {/* Section: Introduction */}
                 <section className="space-y-8">
