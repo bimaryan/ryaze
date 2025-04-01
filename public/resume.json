@@ -3,9 +3,11 @@
   "contact": {
     "email": "ryaze22@student.polindra.ac.id",
     "phone": "+6285157433395",
-    "address": "Jl. Raya Jatibarang - Karangampel, Desa Tambi Lor blok Kasmaran RT 14 RW 04, Kec. Sliyeg, Kab. Indramayu, Jawa Barat, 45281"
+    "address": "Jl. Raya Jatibarang - Karangampel, Desa Tambi Lor blok Kasmaran RT 14 RW 04, Kec. Sliyeg, Kab. Indramayu, Jawa Barat, 45281",
+    "wesbite": "https://ryaze.my.id",
+    "instagram": "https://www.instagram.com/bima_ryan23"
   },
-  "summary": "Saya Mahasiswa Jurusan Teknik Informatika Program Studi Rekayasa Perangkat Lunak Politeknik Negeri Indramayu (POLINDRA), Saat Ini Masih Dalam Pembelajaran Di Semester 6.",
+  "summary": "Saya Mahasiswa Jurusan Teknik Informatika Program Studi Rekayasa Perangkat Lunak Politeknik Negeri Indramayu (POLINDRA), Saat Ini Masih Dalam Pembelajaran Di Semester 7.",
   "education": [
     {
       "institution": "Politeknik Negeri Indramayu",
@@ -14,7 +16,7 @@
       "end_year": 2026
     }
   ],
-  "skills": ["Laravel", "PHP", "Tailwind CSS", "Midtrans", "JavaScript"],
+  "skills": ["Laravel", "PHP", "Tailwind CSS", "Midtrans", "JavaScript", "unity"],
   "projects": [
     {
       "title": "Game Developer - Bajaj Jek (Unity)",
