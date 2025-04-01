@@ -1,0 +1,38 @@
+{
+  "name": "Bima Ryan Alfarizi",
+  "contact": {
+    "email": "ryaze22@student.polindra.ac.id",
+    "phone": "+6285157433395",
+    "address": "Jl. Raya Jatibarang - Karangampel, Desa Tambi Lor blok Kasmaran RT 14 RW 04, Kec. Sliyeg, Kab. Indramayu, Jawa Barat, 45281"
+  },
+  "summary": "Saya Mahasiswa Jurusan Teknik Informatika Program Studi Rekayasa Perangkat Lunak Politeknik Negeri Indramayu (POLINDRA), Saat Ini Masih Dalam Pembelajaran Di Semester 6.",
+  "education": [
+    {
+      "institution": "Politeknik Negeri Indramayu",
+      "degree": "Informatika",
+      "start_year": 2022,
+      "end_year": 2026
+    }
+  ],
+  "skills": ["Laravel", "PHP", "Tailwind CSS", "Midtrans", "JavaScript"],
+  "projects": [
+    {
+      "title": "Game Developer - Bajaj Jek (Unity)",
+      "description": "Game ini adalah game yang dibuat menggunakan Unity dan C#.",
+      "technologies": ["Laravel", "MySQL", "Tailwind CSS"]
+    },
+    {
+      "title": "Kampus Merdeka - Sistem Peminjaman Laboratorium Kesehatan",
+      "description": "Aplikasi peminajaman bahan dan alat laboratorium adalah sebuah sistem berbasis teknologi yang dirancang untuk mempermudah proses peminjaman, pengembalian, serta pengelolaan inventaris laboratorium secara digital.",
+      "technologies": ["Laravel", "MySQL", "Tailwind CSS"],
+      "url": "https://github.com/bimaryan/silk"
+    },
+    {
+      "title": "Proyek 2 - Penyewaan Kost dan Mobil berbasis Website ",
+      "description": "Aplikasi ini dibuat menggunakan framework Laravel dan menggunakan database MySQL.",
+      "technologies": ["Laravel", "MySQL", "Tailwind CSS"],
+      "url": "https://github.com/maulanaibrahim20/Bharata.id-WEB"
+    }
+  ],
+  "languages": ["Bahasa Indonesia", "English"]
+}

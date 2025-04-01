@@ -10,19 +10,6 @@ export default function Home() {
         setIsPlaying(!isPlaying);
     };
 
-    const techIcons = {
-        JavaScript: "fa-brands fa-js text-yellow-500",
-        NodeJS: "fa-brands fa-node text-green-500",
-        React: "fa-brands fa-react text-blue-500",
-        TailwindCSS: "fa-brands fa-css3-alt text-blue-400",
-        Bootstrap: "fa-brands fa-bootstrap text-purple-600",
-        HTML: "fa-brands fa-html5 text-orange-500",
-        CSS: "fa-brands fa-css3 text-blue-500",
-        Laravel: "fa-brands fa-laravel text-red-500",
-        MySQL: "fa-solid fa-database text-blue-500",
-        Unity: "fa-brands fa-unity text-gray-800"
-    };
-
     return (
         <>
             <Helmet>
@@ -32,7 +19,7 @@ export default function Home() {
                 <meta name="description" content="Website portofolio saya Bima Ryan Alfarizi" />
                 <meta name="keywords" content="website portofolio ryaze bima ryan alfarizi frondend backend fullstack gamedev crazygamedev unity" />
             </Helmet>
-            <main className="max-w-2xl mx-auto p-6">
+            <main className="max-w-2xl mx-auto p-6 mt-14">
                 {/* Section: Introduction */}
                 <section className="space-y-8">
                     <h1 className="text-4xl font-extrabold text-gray-800 dark:text-gray-100">
