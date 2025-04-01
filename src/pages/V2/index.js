@@ -9,22 +9,19 @@ export default function V2() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    return localStorage.getItem("darkMode") === "true";
+    const savedMode = localStorage.getItem("darkMode");
+    return savedMode === "true";
   });
+  const [copySuccess, setCopySuccess] = useState(false);
 
-  // Event listener untuk mendeteksi perubahan localStorage secara real-time
   useEffect(() => {
-    const handleStorageChange = (event) => {
-      if (event.key === "darkMode") {
-        setIsDarkMode(event.newValue === "true");
-      }
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("darkMode", isDarkMode);
+  }, [isDarkMode]);
 
   useEffect(() => {
     const fetchResume = async () => {
@@ -44,6 +41,17 @@ export default function V2() {
 
     fetchResume();
   }, []);
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(resume, null, 2));
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000); // Reset success message after 2 seconds
+    } catch (err) {
+      setCopySuccess(false);
+      console.error("Failed to copy text: ", err);
+    }
+  };
 
   if (loading) {
     return (
@@ -88,14 +96,13 @@ export default function V2() {
             <div>
               <button
                 className="px-3 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl"
-                onClick={() => {
-                  const newMode = !isDarkMode;
-                  localStorage.setItem("darkMode", newMode);
-                  setIsDarkMode(newMode);
-                  window.dispatchEvent(new Event("storage")); // Paksa update
-                }}
+                onClick={copyToClipboard}
               >
-                <i className="fa-regular fa-copy"></i>
+                {copySuccess ? (
+                  <span className="text-green-500">Copied!</span>
+                ) : (
+                  <i className="fa-regular fa-copy"></i>
+                )}
               </button>
             </div>
           </div>

@@ -14,6 +14,7 @@ function App() {
     <Router>
       <Navbar />
       <br/>
+      <br/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/v2" element={<V2 />} />
