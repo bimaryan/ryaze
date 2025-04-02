@@ -22,6 +22,8 @@ function App() {
         <Route path="/projects/:projectName" element={<Detail />} /> */}
         <Route path="*" element={<Error404 />} />
       </Routes>
+      <br/>
+      <br/>
       <Footer />
     </Router>
   );

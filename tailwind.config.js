@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        marqueeLeft: "marqueeLeft 15s linear infinite",
-        marqueeRight: "marqueeRight 15s linear infinite",
+        marqueeLeft: "marqueeLeft 10s linear infinite",
+        marqueeRight: "marqueeRight 10s linear infinite",
       },
       keyframes: {
         marqueeLeft: {

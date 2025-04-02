@@ -44,7 +44,7 @@ function Navbar() {
 
       {/* Navbar */}
       <nav className="max-w-2xl mx-auto fixed top-0 left-0 right-0 z-50 p-4">
-        <div className="bg-white/30 dark:bg-gray-900/30 backdrop-blur-lg shadow-lg rounded-xl px-6 py-3 transition-all">
+        <div className="bg-white/30 dark:bg-gray-900/30 backdrop-blur-lg shadow-lg rounded-xl px-6 py-3 transition-all border dark:border-white border-gray-900">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <NavLink to="/" className="flex items-center space-x-2">
