@@ -97,6 +97,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
             Skills
           </h2>
+          
 
           {/* Marquee Kiri */}
           <div className="relative overflow-hidden whitespace-nowrap w-full">
