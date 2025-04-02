@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll } from "motion/react";
+import { motion, useScroll } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -26,6 +26,7 @@ function Navbar() {
 
   return (
     <>
+      {/* Scroll Indicator */}
       <motion.div
         id="scroll-indicator"
         style={{
@@ -34,15 +35,16 @@ function Navbar() {
           top: 0,
           left: 0,
           right: 0,
-          height: 10,
+          height: 4,
           originX: 0,
-          zIndex: 20,
+          zIndex: 50,
         }}
         className="bg-gray-800 dark:bg-white"
       />
 
-      <nav className="fixed top-0 left-0 right-0 z-10 max-w-screen-xl p-4 mx-auto">
-        <div className="bg-gray-100 bg-opacity-50 dark:bg-opacity-50 p-4 dark:bg-gray-900 backdrop-filter rounded-xl shadow-xl">
+      {/* Navbar */}
+      <nav className="max-w-2xl mx-auto fixed top-0 left-0 right-0 z-50 p-4">
+        <div className="bg-white/30 dark:bg-gray-900/30 backdrop-blur-lg shadow-lg rounded-xl px-6 py-3 transition-all">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <NavLink to="/" className="flex items-center space-x-2">
