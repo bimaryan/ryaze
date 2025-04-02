@@ -87,7 +87,7 @@ export default function V2() {
         />
       </Helmet>
       <div className="max-w-screen-xl p-4 mx-auto mt-14">
-        <div className="bg-white shadow-xl rounded-xl p-4 dark:bg-gray-900">
+        <div className="bg-white shadow-xl rounded-xl p-4 dark:bg-gray-800">
           {/* card header */}
           <div className="flex items-center justify-between">
             <div>
